@@ -3,30 +3,9 @@
     <app-score-info [songPlayerStatus]="songPlayerStatus"></app-score-info>
   </div>
   <div class="progressArea" fxFlex="33%" fxLayout="column">
-    <div class="progressTop" fxFlex="row">
-<!--      <div class="health" fxFlex="75%">-->
-<!--        <mat-icon>add_circle</mat-icon>-->
-<!--        {{ health * 100 }}%-->
-<!--      </div>-->
-<!--      <div class="targetCounters">-->
-<!--        <mat-icon>query_builder</mat-icon>-->
-<!--        {{ targetMissTimingCounter }}-->
-<!--        <mat-icon>adjust</mat-icon>-->
-<!--        {{ targetMissAimCounter }}-->
-<!--        <mat-icon>help</mat-icon>-->
-<!--        {{ targetMissOtherCounter }}-->
-<!--      </div>-->
-    </div>
-    <div class="progressBottom">
-<!--      <span class="timeElapsed">{{ timeElapsed }}</span>-->
-<!--      <mat-progress-bar mode="determinate" [value]="progress * 100"></mat-progress-bar>-->
-<!--      <span class="timeRemaining">{{ timeRemaining }}</span>-->
-    </div>
+    <app-score-details [songProgress]="songProgress" [songPlayerStatus]="songPlayerStatus" [targetCounters]="targetCounters"></app-score-details>
   </div>
   <div class="songDetails" fxFlex="33%">
-<!--    <div class="songName">{{ songName }}</div>-->
-<!--    <div class="songArtist">{{ songArtist }}</div>-->
-<!--    <div class="songAuthor">{{songAuthor}}</div>-->
-<!--    <div class="difficulty">{{difficulty}}</div>-->
+    <app-song-details [songInfo]="songInfo"></app-song-details>
   </div>
 </div>

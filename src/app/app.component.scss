@@ -1,6 +1,7 @@
 .songDetails {
   text-align: right;
-  .songName {
-    font-size: +15px;
-  }
+}
+
+.overlayBar {
+  position:fixed; width:100%; height:200px; padding:5px; bottom:0;
 }

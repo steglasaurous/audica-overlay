@@ -8,12 +8,14 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { SongDetailsComponent } from './song-details/song-details.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
+import { ScoreDetailsComponent } from './score-details/score-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ScoreInfoComponent,
-    SongDetailsComponent
+    SongDetailsComponent,
+    ScoreDetailsComponent
   ],
   imports: [
     BrowserModule,

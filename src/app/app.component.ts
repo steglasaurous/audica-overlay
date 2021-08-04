@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-import {AudicaWebsocketService} from "./audica-websocket.service";
-import {Observable, Subscription} from "rxjs";
 import {tap} from "rxjs/operators";
 import {webSocket} from "rxjs/webSocket";
-import {MatIcon} from "@angular/material/icon";
 
 // FIXME: Create a generic websocket server that can emit test events
 //        so we can test without having to fire up the real deal.
@@ -45,7 +42,6 @@ export class AppComponent {
     classification: ""
   }
 
-
   // For target hit/miss tracking
   targetCounters: TargetCounters = {
     targetHits: [],
@@ -84,21 +80,6 @@ export class AppComponent {
           case 'SongRestart':
             this.resetStats();
             break;
-        }
-        if (data.eventType == 'SongProgress') {
-          console.log("Progress");
-
-        } else if (data.eventType == 'TargetHit') {
-          console.log("TargetHit");
-          this.processTargetHit(data);
-        } else if (data.eventType == 'SongPlayerStatus') {
-          console.log('Status');
-          this.processSongPlayerStatus(data);
-        } else if (data.eventType == 'SongSelected') {
-          console.log('Song selected');
-          this.processSongSelected(data);
-        } else if (data.eventType == 'TargetMiss') {
-          this.processTargetMiss(data);
         }
       })
     ).subscribe();
@@ -156,6 +137,7 @@ export class AppComponent {
       score: data.data.score,
       timingScore: data.data.timingScore
     });
+    // console.log(this.targetCounters.targetHits);
   }
 
   processTargetMiss(data: any) {
@@ -165,6 +147,7 @@ export class AppComponent {
       type: data.data.type,
       reason: data.data.reason
     });
+    console.log(this.targetCounters.targetMisses);
   }
 }
 
