@@ -86,10 +86,42 @@ export class AppComponent {
   }
 
   private resetStats() {
-    // FIXME: Implement
+    this.songPlayerStatus = {
+      score: 0,
+      health: 1,
+      scoreMultiplier: 1,
+      streak: 0,
+      highScore: 0,
+      isFullComboSoFar: true,
+      isNoFailMode: false,
+      isPracticeMode: false,
+      songSpeed: 1
+      // modifiers is a list - but need to look at what this looks like in output first
+    }
+
+    this.targetCounters = {
+      targetHits: [],
+      targetMisses: []
+    }
   }
   private resetSong() {
-    // FIXME: Implement
+    this.songProgress = {
+      currentTick: 0,
+      progress: 0,
+      timeElapsed: "",
+      timeRemaining: ""
+    }
+
+    this.songInfo = {
+      songId: "",
+      songName: "",
+      songArtist: "",
+      songAuthor: "",
+      songLength: 0,
+      ticksTotal: 0,
+      difficulty: "",
+      classification: ""
+    }
   }
 
   processSongSelected(data: any) {

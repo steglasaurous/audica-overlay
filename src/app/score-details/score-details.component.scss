@@ -1,0 +1,47 @@
+.targetHits {
+  mat-icon {
+    color: green;
+    vertical-align: text-bottom;
+  }
+  width: 80px;
+  border: 1px solid white;
+  //float: left;
+  margin-right: 3px;
+  margin-bottom: 3px;
+
+}
+
+.targetMiss {
+  mat-icon {
+    color: red;
+    vertical-align: text-bottom;
+  }
+  width: 80px;
+  border: 1px solid white;
+  float: left;
+  margin-right: 3px;
+  margin-bottom: 3px;
+}
+
+.health {
+  font-size: 45px;
+}
+
+.progressBottom {
+  margin-top: 15px;
+}
+.songTime {
+  .timeElapsed {
+    width: 100px;
+    float: left;
+  }
+
+  .timeRemaining {
+    width: 100px;
+    float: right;
+    text-align: right;
+  }
+  mat-progress-bar {
+    margin-top: 5px;
+  }
+}
