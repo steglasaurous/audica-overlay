@@ -1,9 +1,23 @@
+.totalTargets {
+  text-align: center;
+  font-size: 30px;
+}
+
+.targetStatsLeftHand {
+  background-color: rgba(0,0,255, 0.5);
+
+}
+
+.targetStatsRightHand {
+  background-color: rgba(0, 255, 0, 0.5);
+}
+
 .targetHits {
   mat-icon {
-    color: green;
+    //color: green;
     vertical-align: text-bottom;
   }
-  width: 80px;
+  width: 100px;
   border: 1px solid white;
   //float: left;
   margin-right: 3px;
@@ -13,10 +27,10 @@
 
 .targetMiss {
   mat-icon {
-    color: red;
+    //color: green;
     vertical-align: text-bottom;
   }
-  width: 80px;
+  width: 100px;
   border: 1px solid white;
   float: left;
   margin-right: 3px;

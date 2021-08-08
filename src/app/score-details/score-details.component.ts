@@ -34,6 +34,27 @@ export class ScoreDetailsComponent implements OnInit {
     targetMisses: []
   };
 
+  healthGaugeColors = [
+    {
+      to: 25,
+      color: "#FF0000",
+    },
+    {
+      from: 25,
+      to: 50,
+      color: "#FFFF00",
+    },
+    {
+      from: 50,
+      to: 75,
+      color: "#559900",
+    },
+    {
+      from: 75,
+      color: "#00FF00",
+    },
+  ];
+
   constructor() { }
 
   ngOnInit(): void {
@@ -45,9 +66,11 @@ export class ScoreDetailsComponent implements OnInit {
         return hit.hand == hand && hit.type == type;
       } else if (type) {
         return hit.type == type;
+      } else if (hand) {
+        return hit.hand == hand;
       }
 
-      return hit.hand == hand;
+      return true;
     }).length;
   }
 
@@ -57,9 +80,11 @@ export class ScoreDetailsComponent implements OnInit {
         return miss.hand == hand && miss.type == type
       } else if (type) {
         return miss.type == type;
+      } else if (hand) {
+        return miss.hand == hand;
       }
 
-      return miss.hand == hand;
+      return true;
     }).length;
   }
 

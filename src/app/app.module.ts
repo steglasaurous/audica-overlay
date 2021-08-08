@@ -9,6 +9,9 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { SongDetailsComponent } from './song-details/song-details.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { ScoreDetailsComponent } from './score-details/score-details.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { GaugesModule } from '@progress/kendo-angular-gauges';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { ScoreDetailsComponent } from './score-details/score-details.component';
     BrowserAnimationsModule,
     MatIconModule,
     MatProgressBarModule,
-    FlexLayoutModule
+    MatProgressSpinnerModule,
+    FlexLayoutModule,
+    GaugesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

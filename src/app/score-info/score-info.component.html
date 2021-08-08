@@ -1,7 +1,8 @@
 <div fxLayout="column">
   <div>
   <span style="font-size: 20px">Score</span><br />
-  <span style="font-size: 40px" class="score">{{ songPlayerStatus.score|number }}</span>
+  <div style="font-size: 40px" class="score">{{ songPlayerStatus.score|number }}</div>
+    <div class="scoreMultiplier">x{{ songPlayerStatus.scoreMultiplier }}</div>
     </div>
   <div>
   <span style="font-size: 20px">Personal Best</span><br/>
