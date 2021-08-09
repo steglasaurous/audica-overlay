@@ -1,0 +1,15 @@
+.songTime {
+  .timeElapsed {
+    width: 100px;
+    float: left;
+  }
+
+  .timeRemaining {
+    width: 100px;
+    float: right;
+    text-align: right;
+  }
+  mat-progress-bar {
+    margin-top: 5px;
+  }
+}

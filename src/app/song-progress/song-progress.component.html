@@ -1,0 +1,7 @@
+  <div class="songTime">
+    <div class="timeElapsed">{{ songProgress.timeElapsed }}</div>
+    <div class="timeRemaining">{{ songProgress.timeRemaining }}</div>
+  </div>
+  <br />
+  <mat-progress-bar mode="determinate" [value]="songProgress.progress * 100"></mat-progress-bar>
+  
