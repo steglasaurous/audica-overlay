@@ -1,128 +1,104 @@
-<div class="progressTop">
-  <div class="totalTargets">
-    {{ getTargetHits() }} /  {{ getTargetTotal() }}
-  </div>
+<div>
+<!--  <div class="totalTargets">-->
+<!--    {{ getTargetHits() }} /  {{ getTargetTotal() }}-->
+<!--  </div>-->
   <div class="targetCounters">
-<!--    <table border="1">-->
-<!--      <thead>-->
-<!--      <th>Target</th>-->
-<!--      <th colspan="2">Left</th>-->
-<!--      <th colspan="2">Right</th>-->
-<!--      </thead>-->
-<!--      <tr>-->
-<!--        <th></th>-->
-<!--        <th>Hits</th>-->
-<!--        <th>Total</th>-->
-<!--        <th>Hits</th>-->
-<!--        <th>Total</th>-->
-<!--      </tr>-->
-<!--      <tr>-->
-<!--        <td><mat-icon>adjust</mat-icon></td>-->
-<!--        <td>{{ getTargetHits('Left', 'Standard') }}</td>-->
-<!--        <td>{{ getTargetTotal('Left', 'Standard') }}</td>-->
-<!--        <td>{{ getTargetHits('Right', 'Standard') }}</td>-->
-<!--        <td>{{ getTargetTotal('Right', 'Standard') }}</td>-->
-<!--      </tr><tr>-->
-<!--        <td><mat-icon>adjust</mat-icon></td>-->
-<!--        <td>{{ getTargetHits('Left', 'Hold') }}</td>-->
-<!--        <td>{{ getTargetTotal('Left', 'Hold') }}</td>-->
-<!--        <td>{{ getTargetHits('Right', 'Hold') }}</td>-->
-<!--        <td>{{ getTargetTotal('Right', 'Hold') }}</td>-->
-<!--      </tr><tr>-->
-<!--        <td><mat-icon>adjust</mat-icon></td>-->
-<!--        <td>{{ getTargetHits('Left', 'Vertical') }}</td>-->
-<!--        <td>{{ getTargetTotal('Left', 'Vertical') }}</td>-->
-<!--        <td>{{ getTargetHits('Right', 'Vertical') }}</td>-->
-<!--        <td>{{ getTargetTotal('Right', 'Vertical') }}</td>-->
-<!--      </tr><tr>-->
-<!--        <td><mat-icon>adjust</mat-icon></td>-->
-<!--        <td>{{ getTargetHits('Left', 'Horizontal') }}</td>-->
-<!--        <td>{{ getTargetTotal('Left', 'Horizontal') }}</td>-->
-<!--        <td>{{ getTargetHits('Right', 'Horizontal') }}</td>-->
-<!--        <td>{{ getTargetTotal('Right', 'Horizontal') }}</td>-->
-<!--      </tr><tr>-->
-<!--        <td><mat-icon>adjust</mat-icon></td>-->
-<!--        <td>{{ getTargetHits('Left', 'ChainStart') }}</td>-->
-<!--        <td>{{ getTargetTotal('Left', 'ChainStart') }}</td>-->
-<!--        <td>{{ getTargetHits('Right', 'ChainStart') }}</td>-->
-<!--        <td>{{ getTargetTotal('Right', 'ChainStart') }}</td>-->
-<!--      </tr><tr>-->
-<!--        <td><mat-icon>adjust</mat-icon></td>-->
-<!--        <td>{{ getTargetHits('Left', 'Chain') }}</td>-->
-<!--        <td>{{ getTargetTotal('Left', 'Chain') }}</td>-->
-<!--        <td>{{ getTargetHits('Right', 'Chain') }}</td>-->
-<!--        <td>{{ getTargetTotal('Right', 'Chain') }}</td>-->
-<!--      </tr>-->
-<!--    </table>-->
+    <table>
+      <tr>
+        <th></th>
+        <th>Hits</th>
+        <th>Standard</th>
+        <th>Sustain</th>
+        <th>Vertical</th>
+        <th>Horizontal</th>
+        <th>Chain Start</th>
+        <th>Chain</th>
+        <th>All Targets</th>
+      </tr>
+      <tr class="leftHand">
+        <td class="handLabel">Left</td>
+        <td>
+          <mat-icon>check_circle</mat-icon>
+          {{ getTargetHits('Left') }} / {{ getTargetTotal('Left') }}
+        </td>
+        <td>
+          <mat-icon>adjust</mat-icon>
+          {{ getTargetHits('Left', 'Standard') }} / {{ getTargetTotal('Left', 'Standard') }}
+        </td>
+        <td>
+          <mat-icon>stop</mat-icon>
+          {{ getTargetHits('Left', 'Hold')}} / {{ getTargetTotal('Left', 'Hold')}}
+        </td>
+        <td>
+          <mat-icon>panorama_vertical</mat-icon>
+          {{ getTargetHits('Left', 'Vertical')}} / {{ getTargetTotal('Left', 'Vertical')}}
+        </td>
+        <td>
+          <mat-icon>panorama_horizontal</mat-icon>
+          {{ getTargetHits('Left', 'Horizontal')}} / {{ getTargetTotal('Left', 'Horizontal')}}</td>
+        <td>
+          <mat-icon>link</mat-icon>
+          {{ getTargetHits('Left', 'ChainStart')}} / {{ getTargetTotal('Left', 'ChainStart')}}</td>
+        <td>
+          <mat-icon>hdr_weak</mat-icon>
+          {{ getTargetHits('Left', 'Chain')}} / {{ getTargetTotal('Left', 'Chain')}}</td>
+        <td rowspan="3" class="totalTargets">
+          {{ getTargetHits() }} /  {{ getTargetTotal() }}
+              <div class="health">
+<!--                <kendo-arcgauge [value]="songPlayerStatus.health * 100" [colors]="healthGaugeColors">-->
+<!--                  <ng-template kendoArcGaugeCenterTemplate let-value="value">-->
+<!--                    {{ value }}%-->
+<!--                  </ng-template>-->
+<!--                </kendo-arcgauge>-->
+                <mat-icon>favorite</mat-icon>{{ songPlayerStatus.health }}%
+              </div>
 
-    <div class="targetStatsLeftHand" fxFlex="40%">
-      <div class="targetHits">
-        <mat-icon>check_circle</mat-icon>
-        {{ getTargetHits('Left') }} / {{ getTargetTotal('Left')}}</div>
-      <div class="targetMiss targetMissStandard">
-        <mat-icon>adjust</mat-icon>
-        {{ getTargetHits('Left', 'Standard') }} / {{ getTargetTotal('Left', 'Standard') }}</div>
-      <div class="targetMiss targetMissSustain">
-        <mat-icon>stop</mat-icon>
-        {{ getTargetHits('Left', 'Hold')}} / {{ getTargetTotal('Left', 'Hold')}}</div>
-      <div class="targetMiss targetMissVertical">
-        <mat-icon>panorama_vertical</mat-icon>
-        {{ getTargetHits('Left', 'Vertical')}} / {{ getTargetTotal('Left', 'Vertical')}}</div>
-      <div class="targetMiss targetMissHorizontal">
-        <mat-icon>panorama_horizontal</mat-icon>
-        {{ getTargetHits('Left', 'Horizontal')}} / {{ getTargetTotal('Left', 'Horizontal')}}</div>
-      <div class="targetMiss targetMissChainStart">
-        <mat-icon>link</mat-icon>
-        {{ getTargetHits('Left', 'ChainStart')}} / {{ getTargetTotal('Left', 'ChainStart')}}</div>
-      <div class="targetMiss targetMissChain">
-        <mat-icon>hdr_weak</mat-icon>
-        {{ getTargetHits('Left', 'Chain')}} / {{ getTargetTotal('Left', 'Chain')}}</div>
-    </div>
-    <div class="targetStatsRightHand" fxFlex="40%">
-      <div class="targetHits">
-        <mat-icon>check_circle</mat-icon>
-        {{ getTargetHits('Right') }} / {{ getTargetTotal('Right')}}</div>
-      <div class="targetMiss targetMissStandard">
-        <mat-icon>adjust</mat-icon>
-        {{ getTargetHits('Right', 'Standard') }} / {{ getTargetTotal('Right', 'Standard') }}</div>
-      <div class="targetMiss targetMissSustain">
-        <mat-icon>stop</mat-icon>
-        {{ getTargetHits('Right', 'Hold')}} / {{ getTargetTotal('Right', 'Hold')}}</div>
-      <div class="targetMiss targetMissVertical">
-        <mat-icon>panorama_vertical</mat-icon>
-        {{ getTargetHits('Right', 'Vertical')}} / {{ getTargetTotal('Right', 'Vertical')}}</div>
-      <div class="targetMiss targetMissHorizontal">
-        <mat-icon>panorama_horizontal</mat-icon>
-        {{ getTargetHits('Right', 'Horizontal')}} / {{ getTargetTotal('Right', 'Horizontal')}}</div>
-      <div class="targetMiss targetMissChainStart">
-        <mat-icon>link</mat-icon>
-        {{ getTargetHits('Right', 'ChainStart')}} / {{ getTargetTotal('Right', 'ChainStart')}}</div>
-      <div class="targetMiss targetMissChain">
-        <mat-icon>hdr_weak</mat-icon>
-        {{ getTargetHits('Right', 'Chain')}} / {{ getTargetTotal('Right', 'Chain')}}</div>    </div>
-    <div class="targetStatusNoHand" fxFlex="20%">
-      <div class="targetHits meleeHit">
-        <mat-icon>sports_soccer</mat-icon>
-        {{ getTargetHits('', 'Melee') }} / {{ getTargetTotal('', 'Melee') }}</div>
-                  <div class="bomb"></div>
-    </div>
+        </td>
+      </tr>
+      <tr class="rightHand">
+        <td class="handLabel">Right</td>
+        <td>
+          <mat-icon>check_circle</mat-icon>
+          {{ getTargetHits('Right') }} / {{ getTargetTotal('Right') }}
+        </td>
+        <td>
+          <mat-icon>adjust</mat-icon>
+          {{ getTargetHits('Right', 'Standard') }} / {{ getTargetTotal('Right', 'Standard') }}
+        </td>
+        <td>
+          <mat-icon>stop</mat-icon>
+          {{ getTargetHits('Right', 'Hold')}} / {{ getTargetTotal('Right', 'Hold')}}
+        </td>
+        <td>
+          <mat-icon>panorama_vertical</mat-icon>
+          {{ getTargetHits('Right', 'Vertical')}} / {{ getTargetTotal('Right', 'Vertical')}}
+        </td>
+        <td>
+          <mat-icon>panorama_horizontal</mat-icon>
+          {{ getTargetHits('Right', 'Horizontal')}} / {{ getTargetTotal('Right', 'Horizontal')}}</td>
+        <td>
+          <mat-icon>link</mat-icon>
+          {{ getTargetHits('Right', 'ChainStart')}} / {{ getTargetTotal('Right', 'ChainStart')}}</td>
+        <td>
+          <mat-icon>hdr_weak</mat-icon>
+          {{ getTargetHits('Right', 'Chain')}} / {{ getTargetTotal('Right', 'Chain')}}</td>
+      </tr>
+      <tr class="melee">
+        <td class="handLabel">Melees</td>
+        <td colspan="7">
+          <mat-icon>sports_soccer</mat-icon>
+          {{ getTargetHits('', 'Melee') }} / {{ getTargetTotal('', 'Melee') }}
+        </td>
+      </tr>
+    </table>
 
-<!--    <div class="health" fxFlex="20%">-->
-<!--      <kendo-arcgauge [value]="songPlayerStatus.health * 100" [colors]="healthGaugeColors">-->
-<!--        <ng-template kendoArcGaugeCenterTemplate let-value="value">-->
-<!--          {{ value }}%-->
-<!--        </ng-template>-->
-<!--      </kendo-arcgauge>-->
-<!--      {{ songPlayerStatus.health * 100 }}-->
-<!--    </div>-->
+    <!--    <div class="health" fxFlex="20%">-->
+    <!--      <kendo-arcgauge [value]="songPlayerStatus.health * 100" [colors]="healthGaugeColors">-->
+    <!--        <ng-template kendoArcGaugeCenterTemplate let-value="value">-->
+    <!--          {{ value }}%-->
+    <!--        </ng-template>-->
+    <!--      </kendo-arcgauge>-->
+    <!--      {{ songPlayerStatus.health * 100 }}-->
+    <!--    </div>-->
   </div>
 </div>
-<!--<div class="progressBottom">-->
-<!--  <div class="songTime">-->
-<!--    <div class="timeElapsed">{{ songProgress.timeElapsed }}</div>-->
-<!--    <div class="timeRemaining">{{ songProgress.timeRemaining }}</div>-->
-<!--  </div>-->
-<!--  <br />-->
-<!--  <mat-progress-bar mode="determinate" [value]="songProgress.progress * 100"></mat-progress-bar>-->
-<!---->
-<!--</div>-->

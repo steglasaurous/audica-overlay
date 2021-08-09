@@ -1,25 +1,43 @@
-.totalTargets {
-  text-align: center;
-  font-size: 30px;
-}
+.targetCounters {
+  mat-icon {
+    vertical-align: text-bottom;
+  }
+  table {
+    border-spacing: 0;
 
-.targetStatsLeftHand {
-  background-color: rgba(0,0,255, 0.5);
+    td {
+      height: 30px;
+      width: 100px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border: 1px solid grey;
+    }
+    .handLabel {
+      font-weight: bold;
+    }
+    .leftHand td {
+      background-color: rgba(0,0,255, 0.5);
+    }
+    .rightHand td {
+      background-color: rgba(0, 255, 0, 0.5);
+    }
+    .totalTargets {
+      font-size: 30px;
+      background-color: #000 !important;
+      width: 150px;
+      text-align: center;
+    }
 
-}
+  }
 
-.targetStatsRightHand {
-  background-color: rgba(0, 255, 0, 0.5);
 }
 
 .targetHits {
   mat-icon {
-    //color: green;
     vertical-align: text-bottom;
   }
   width: 100px;
-  border: 1px solid white;
-  //float: left;
+  float: left;
   margin-right: 3px;
   margin-bottom: 3px;
 
@@ -27,18 +45,25 @@
 
 .targetMiss {
   mat-icon {
-    //color: green;
     vertical-align: text-bottom;
   }
   width: 100px;
-  border: 1px solid white;
   float: left;
   margin-right: 3px;
   margin-bottom: 3px;
 }
 
 .health {
-  font-size: 45px;
+  mat-icon {
+    vertical-align: middle;
+  }
+  .k-gauge {
+    display: block;
+  }
+  kendo-arcgauge {
+    width: 50px;
+    border: 1px solid white;
+  }
 }
 
 .progressBottom {

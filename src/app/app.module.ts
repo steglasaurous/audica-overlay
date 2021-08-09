@@ -11,6 +11,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import { ScoreDetailsComponent } from './score-details/score-details.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { GaugesModule } from '@progress/kendo-angular-gauges';
+import { SongProgressComponent } from './song-progress/song-progress.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { GaugesModule } from '@progress/kendo-angular-gauges';
     AppComponent,
     ScoreInfoComponent,
     SongDetailsComponent,
-    ScoreDetailsComponent
+    ScoreDetailsComponent,
+    SongProgressComponent
   ],
   imports: [
     BrowserModule,

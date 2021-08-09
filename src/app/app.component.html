@@ -1,11 +1,13 @@
 <div class="overlayBar" fxLayout="row"><!-- Should be 3 cols -->
   <div class="scores" fxFlex="20%">
-    <app-score-info [songPlayerStatus]="songPlayerStatus"></app-score-info>
+    <app-score-info [hidden]="songInfo.songId == ''" [songPlayerStatus]="songPlayerStatus"></app-score-info>
   </div>
-  <div class="progressArea" fxFlex="40%" fxLayout="column">
+  <div class="progressArea" [hidden]="songInfo.songId == ''">
     <app-score-details [songProgress]="songProgress" [songPlayerStatus]="songPlayerStatus" [targetCounters]="targetCounters"></app-score-details>
+    <br />
+    <app-song-progress [hidden]="songInfo.songId == ''" [songProgress]="songProgress"></app-song-progress>
   </div>
   <div class="songDetails" fxFlex="20%">
-    <app-song-details [songInfo]="songInfo"></app-song-details>
+    <app-song-details [hidden]="songInfo.songId == ''" [songInfo]="songInfo"></app-song-details>
   </div>
 </div>

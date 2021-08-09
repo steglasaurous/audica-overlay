@@ -51,8 +51,6 @@ export class AppComponent {
   title = 'audica-overlay';
 
   constructor() {
-
-
     const socket$ = webSocket("ws://localhost:8085/AudicaStats");
 
     socket$.pipe(
@@ -143,7 +141,7 @@ export class AppComponent {
 
   processSongPlayerStatus(data: any) {
     this.songPlayerStatus.score = data.data.score;
-    this.songPlayerStatus.health = data.data.health;
+    this.songPlayerStatus.health = Math.floor(data.data.health * 100);
     this.songPlayerStatus.scoreMultiplier = data.data.scoreMultiplier;
     this.songPlayerStatus.streak = data.data.streak;
     this.songPlayerStatus.highScore = data.data.highScore;
@@ -154,8 +152,6 @@ export class AppComponent {
   }
 
   processTargetHit(data: any) {
-    // Throw this into an observable that whatever component is reading for target hits can pick them up and process as needed.
-    // FIXME: TODO
     this.targetCounters.targetHits.push({
       hand: data.data.hand,
       aimScore: data.data.aimScore,
@@ -169,7 +165,6 @@ export class AppComponent {
       score: data.data.score,
       timingScore: data.data.timingScore
     });
-    // console.log(this.targetCounters.targetHits);
   }
 
   processTargetMiss(data: any) {
