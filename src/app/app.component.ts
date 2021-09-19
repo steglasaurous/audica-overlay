@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import {tap} from "rxjs/operators";
-import {webSocket} from "rxjs/webSocket";
-
-// FIXME: Create a generic websocket server that can emit test events
-//        so we can test without having to fire up the real deal.
+import {WebsocketService} from "./websocket.service";
 
 @Component({
   selector: 'app-root',
@@ -50,10 +47,10 @@ export class AppComponent {
 
   title = 'audica-overlay';
 
-  constructor() {
-    const socket$ = webSocket("ws://localhost:8085/AudicaStats");
+  constructor(private service: WebsocketService) {
+    this.service.connect();
 
-    socket$.pipe(
+    let liveData$ = this.service.messages$.pipe(
       tap((data: any) => {
         switch (data.eventType) {
           case 'SongProgress':

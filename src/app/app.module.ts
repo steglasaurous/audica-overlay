@@ -12,6 +12,7 @@ import { ScoreDetailsComponent } from './score-details/score-details.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { GaugesModule } from '@progress/kendo-angular-gauges';
 import { SongProgressComponent } from './song-progress/song-progress.component';
+import {WebsocketService} from "./websocket.service";
 
 
 @NgModule({
@@ -31,7 +32,9 @@ import { SongProgressComponent } from './song-progress/song-progress.component';
     FlexLayoutModule,
     GaugesModule
   ],
-  providers: [],
+  providers: [
+    WebsocketService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
