@@ -47,7 +47,12 @@ export class AppComponent {
 
   title = 'audica-overlay';
 
+  showStats = false;
+
   constructor(private service: WebsocketService) {
+    if (this.getQueryVariable('show-stats') == '1') {
+      this.showStats = true;
+    }
     this.service.connect();
 
     let liveData$ = this.service.messages$.pipe(
@@ -172,6 +177,19 @@ export class AppComponent {
       reason: data.data.reason
     });
     console.log(this.targetCounters.targetMisses);
+  }
+
+  private getQueryVariable(variable: string) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split('=');
+      if (decodeURIComponent(pair[0]) == variable) {
+        return decodeURIComponent(pair[1]);
+      }
+    }
+    console.log('Query variable %s not found', variable);
+    return null;
   }
 }
 

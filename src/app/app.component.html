@@ -2,10 +2,13 @@
   <div class="scores" fxFlex="20%">
     <app-score-info [hidden]="songInfo.songId == ''" [songPlayerStatus]="songPlayerStatus"></app-score-info>
   </div>
-  <div class="progressArea" [hidden]="songInfo.songId == ''">
-    <app-score-details [songProgress]="songProgress" [songPlayerStatus]="songPlayerStatus" [targetCounters]="targetCounters"></app-score-details>
-    <br />
+  <div class="progressArea" fxFlex="60%" [hidden]="songInfo.songId == ''">
+    <div class="stats">
+    <app-score-details [hidden]="!showStats" [songProgress]="songProgress" [songPlayerStatus]="songPlayerStatus" [targetCounters]="targetCounters"></app-score-details>
+    </div>
+    <div class="progress">
     <app-song-progress [hidden]="songInfo.songId == ''" [songProgress]="songProgress"></app-song-progress>
+    </div>
   </div>
   <div class="songDetails" fxFlex="20%">
     <app-song-details [hidden]="songInfo.songId == ''" [songInfo]="songInfo"></app-song-details>
